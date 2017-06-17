@@ -104,3 +104,4 @@ fi
 clear
 echo " "
 echo "kat5200 should now have been successfully installed"
+echo "please reboot system"
