@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 cd /tmp
 apt-get update
 apt-get install --yes libsqlite3-dev zlib1g zlib1g-dev libsdl2-dev libsdl2-image-dev libguichan-dev
@@ -8,40 +9,51 @@ make
 make install
 
 if [ ! -d "/home/pi/RetroPie/roms/atari5200" ]; then
-  mkdir /home/pi/RetroPie/roms/atari5200
+ 	mkdir /home/pi/RetroPie/roms/atari5200
 fi
 
 if [ -f "/home/pi/RetroPie/BIOS/5200.ROM" ]
 then
-	echo "Bios found."
+	echo "Bios has been found."
 else
-	echo "Bios not found."
-  // ################# is wget bios allowed ?
+	clear
+	echo "Bios file not found."
+	echo "Please download '5200.ROM' (google is your friend) and place it in the bios directory."
+// is wget bios allowed ?
+	read -n 1 -s -p "Press any key to continue"
 fi
 
 if [ ! -d "/opt/retropie/configs/atari5200" ]; then
-  mkdir /opt/retropie/configs/atari5200
+	mkdir /opt/retropie/configs/atari5200
 fi
 
 if [ -f "/opt/retropie/configs/atari5200/default_config.db3" ]
 then
-	echo "Default configuration file already present."
-  // #################  present choice, rename or overwrite it ?
+	echo "Default configuration file already present, it will be renamed."
+	mv /opt/retropie/configs/atari5200/default_config.db3 /opt/retropie/configs/atari5200/default_config.db3_org
 else
-	echo "Default configuration file not found."
-  // #################  cd /opt/retropie/configs/atari5200/
-  // #################  wget "whatever"
-  // #################  cd /tmp
+	echo "Default configuration file not found, downloading it."
+  	cd /opt/retropie/configs/atari5200/
+	wget https://github.com/futurechild/Kat5200-Retropie/raw/master/default_config.db3
+	cd /tmp
 fi
 
 if [ -f "/opt/retropie/configs/atari5200/emulators.cfg" ]
 then
-	echo "Emulators file already present."
-  // maybe use sed to alter ?
+	echo "Emulators file already present, it will be renamed."
+// maybe use sed to alter this file ?
+	mv /opt/retropie/configs/atari5200/emulators.cfg /opt/retropie/configs/atari5200/emulators.cfg_org
+	cat << EOF > /opt/retropie/configs/atari5200/emulators.cfg
+kat5200 = "cp /opt/retropie/configs/atari5200/default_config.db3 /home/pi/.kat5200/kat5200.db3 ;/opt/retropie/emulators/retroarch/bin/retroarch -L /usr/local/bin/kat5200 %ROM%"
+default = "kat5200"
+EOF
 else
 	echo "Emulator file not found."
-  //cat << EOF > /opt/retropie/configs/atari5200/emulators.cfg
+	//cat << EOF > /opt/retropie/configs/atari5200/emulators.cfg
 kat5200 = "cp /opt/retropie/configs/atari5200/default_config.db3 /home/pi/.kat5200/kat5200.db3 ;/opt/retropie/emulators/retroarch/bin/retroarch -L /usr/local/bin/kat5200 %ROM%"
 default = "kat5200".
 EOF
 fi
+
+clear
+echo "kat5200 should now be successfully installed"
