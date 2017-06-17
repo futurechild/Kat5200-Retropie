@@ -1,9 +1,7 @@
 Setup script for installing kat5200 (atari 5200 emulator) in retropie.
 ----------------------------------------------------------------------
 
-
 Usage (from a (SSH) terminal):
-
 wget https://raw.githubusercontent.com/futurechild/Kat5200-Retropie/master/install
 chmod +x install
 sudo ./install
@@ -12,21 +10,21 @@ sudo ./install
 
 Notes:
 ------
- 
-By default a (default) config gets copied over everytime the emulator is started, this can be stopped by editing emulators.cfg and removing the following:
+By default a (default) configuration file gets copied over everytime the emulator is started, this can be stopped by editing emulators.cfg and removing the following:
 yes | cp -rf /opt/retropie/configs/atari5200/default_config.db3 /home/pi/.kat5200/kat5200.db3 ;
 
-
-
+Configuration has to be done with keyboard/mouse.
 Configuration file can be saved by entering the following command:
 cp /home/pi/.kat5200/kat5200.db3 /opt/retropie/configs/atari5200/default_config.db3
 
 
-
 At this point the emulator does not support specifying config files.
 Future versions should have this option according to it's developer. 
-Below is a way to get around this until a new version is available.
-
+The following is a way to get around this until a new version is available:
 edit emulators.cfg and make a new entry with changed emulator name and config file name (i.e. add the following line):
 config1 = "yes | cp -rf /opt/retropie/configs/atari5200/config1.db3 /home/pi/.kat5200/kat5200.db3 ;/opt/retropie/emulators/retroarch/bin/retroarch -L /usr/local/bin/kat5200 %ROM%"
 
+
+The emulator does not support combination buttons (ie start+select) to perform functions (ie quit).
+Future versions may have this option according to it's developer.
+Perhaps, in the meantime, this can be solved with joy2key ?
