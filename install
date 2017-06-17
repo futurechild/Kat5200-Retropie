@@ -62,15 +62,15 @@ fi
 if [ -f "/opt/retropie/configs/all/emulationstation/es_systems.cfg" ]
 then
 	sudo sed -i '/<systemList>/a\
-	  <system>\
-	    <name>atari5200</name>\
-	    <fullname>Atari 5200</fullname>\
-	    <path>/home/pi/RetroPie/roms/atari5200</path>\
-	    <extension>.7z .a52 .bin .zip .7Z .A52 .BIN .ZIP</extension>\
-	    <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
-	    <platform>atari5200</platform>\
-	    <theme>atari5200</theme>\
-	  </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
+  <system>\
+    <name>atari5200</name>\
+    <fullname>Atari 5200</fullname>\
+    <path>/home/pi/RetroPie/roms/atari5200</path>\
+    <extension>.7z .a52 .bin .zip .7Z .A52 .BIN .ZIP</extension>\
+    <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
+    <platform>atari5200</platform>\
+    <theme>atari5200</theme>\
+  </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
 	clear
 	echo "Emulationstation systems file was already present."
 	echo "The following has been added to it :"
@@ -92,15 +92,15 @@ else
 	echo "Emulationstation systems file not found, creating it."
 	sudo cp /etc/emulationstation/es_systems.cfg /opt/retropie/configs/all/emulationstation/es_systems.cfg
 	sudo sed -i '/<systemList>/a\
-	  <system>\
-	    <name>atari5200</name>\
-	    <fullname>Atari 5200</fullname>\
-	    <path>/home/pi/RetroPie/roms/atari5200</path>\
-	    <extension>.7z .a52 .bin .zip .7Z .A52 .BIN .ZIP</extension>\
-	    <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
-	    <platform>atari5200</platform>\
-	    <theme>atari5200</theme>\
-	  </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
+  <system>\
+    <name>atari5200</name>\
+    <fullname>Atari 5200</fullname>\
+    <path>/home/pi/RetroPie/roms/atari5200</path>\
+    <extension>.7z .a52 .bin .zip .7Z .A52 .BIN .ZIP</extension>\
+    <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
+    <platform>atari5200</platform>\
+    <theme>atari5200</theme>\
+  </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
 fi
 
 clear
