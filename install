@@ -3,7 +3,6 @@ cd /tmp
 apt-get update
 apt-get install --yes libsqlite3-dev zlib1g zlib1g-dev libsdl2-dev libsdl2-image-dev libguichan-dev
 wget -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.7.1.tar.gz" | tar -xvz --strip-components=1
-autoreconf
 ./configure
 make clean
 make
