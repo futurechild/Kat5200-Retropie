@@ -4,6 +4,8 @@ cd /tmp
 sudo apt-get update
 sudo apt-get install --yes libsqlite3-dev zlib1g zlib1g-dev libsdl2-dev libsdl2-image-dev libguichan-dev
 wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.7.1.tar.gz" | tar -xvz --strip-components=1
+# remove F1-key invoking debugger 
+sed -i -e '230d' /tmp/src/interface/ui.c
 ./configure
 make
 sudo make install
