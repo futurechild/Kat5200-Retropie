@@ -52,8 +52,11 @@ then
 	default = "kat5200"
 	EOF
 else
-	echo "Emulator file not found."
-
+	echo "Emulator file not found, creating one"
+	cat <<- EOF > /opt/retropie/configs/atari5200/emulators.cfg
+	kat5200 = "yes | cp -rf /opt/retropie/configs/atari5200/default_config.db3 /home/pi/.kat5200/kat5200.db3 ;/opt/retropie/emulators/retroarch/bin/retroarch -L /usr/local/bin/kat5200 %ROM%"
+	default = "kat5200"
+EOF
 fi
 
 clear
