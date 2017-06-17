@@ -72,8 +72,8 @@ then
 	    <theme>atari5200</theme>\
 	  </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
 	clear
-	echo "Emulationstation systems file is already present."
-	echo "The follwing has been added to it :"
+	echo "Emulationstation systems file was already present."
+	echo "The following has been added to it :"
 	echo " <system>"
 	echo "   <name>atari5200</name>"
 	echo "   <fullname>Atari 5200</fullname>"
@@ -83,6 +83,8 @@ then
 	echo "   <platform>atari5200</platform>"
 	echo "   <theme>atari5200</theme>"
 	echo " </system>"
+	echo ""
+	echo "Please check this file to make sure it is not there twice"
 	echo ""
 	read -n 1 -s -p "Press any key to continue"
 	
@@ -104,4 +106,4 @@ fi
 clear
 echo " "
 echo "kat5200 should now have been successfully installed"
-echo "please reboot system"
+echo "please reboot your system"
