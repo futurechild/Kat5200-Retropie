@@ -70,7 +70,7 @@ then
 	       <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
 	       <platform>atari5200</platform>\
 	       <theme>atari5200</theme>\
-	  </system>' es_systems.cfg
+	  </system>' /etc/emulationstation/es_systems.cfg
 	clear
 	echo "Emulationstation systems file is already present."
 	echo "The follwing has been added to it :"
@@ -98,7 +98,7 @@ else
 	       <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
 	       <platform>atari5200</platform>\
 	       <theme>atari5200</theme>\
-	  </system>' es_systems.cfg
+	  </system>' /etc/emulationstation/es_systems.cfg
 fi
 
 clear
