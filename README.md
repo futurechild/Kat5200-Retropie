@@ -12,9 +12,10 @@
 
 By default a (default) config gets copied over everytime the emulator is started, this can be stopped by editing emulators.cfg and removing the following:<br>
 *yes | cp -rf /opt/retropie/configs/atari5200/default_config.db3 /home/pi/.kat5200/kat5200.db3 ;*<br>
+
+
 Configuration file can be saved by entering the following command:<br>
 *cp /home/pi/.kat5200/kat5200.db3 /opt/retropie/configs/atari5200/default_config.db3*<br>
-
 or:<br>
 *cp /home/pi/.kat5200/kat5200.db3 /opt/retropie/configs/atari5200/config1.db3*<br>
 
