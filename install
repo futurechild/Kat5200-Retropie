@@ -6,6 +6,8 @@ sudo apt-get install --yes libsqlite3-dev zlib1g zlib1g-dev libsdl2-dev libsdl2-
 wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.7.1.tar.gz" | tar -xvz --strip-components=1
 # remove F1-key invoking debugger 
 sed -i -e '230d' /tmp/src/interface/ui.c
+sed -i '1221 a\
+        if ((SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,8) == SDL_PRESSED) && (SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,9) == SDL_PRESSED)) return -1;' /tmp/src/interface/sdl_if.c
 ./configure
 make
 sudo make install
@@ -108,6 +110,7 @@ else
     <theme>atari5200</theme>\
   </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
 fi
+chown pi:pi /opt/retropie/configs/all/emulationstation/es_systems.cfg
 
 clear
 echo " "
