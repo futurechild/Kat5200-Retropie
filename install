@@ -3,9 +3,9 @@
 cd /tmp
 sudo apt-get update
 sudo apt-get install --yes libsqlite3-dev zlib1g zlib1g-dev libsdl2-dev libsdl2-image-dev libguichan-dev
-wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.8.0.tar.gz" | tar -xvz --strip-components=1
+wget -N -q -O- "http://kat5200.jillybunch.com/downloads/kat5200-0.8.1.tar.gz" | tar -xvz --strip-components=1
 # remove F1-key invoking debugger 
-sed -i -e '251d' /tmp/src/interface/ui.c
+sed -i -e '250d' /tmp/src/interface/ui.c
 #Since combo button support in v0.8.0 this is no longer needed
 #sed -i '1727 a\
 #        if ((SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,8) == SDL_PRESSED) && (SDL_JoystickGetButton(g_pc_joy[0].joy_ptr,9) == SDL_PRESSED)) return -1;' /tmp/src/interface/sdl_if.c
