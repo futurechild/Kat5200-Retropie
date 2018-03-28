@@ -37,25 +37,21 @@ if [ ! -d "/home/pi/.kat5200" ]; then
 	mkdir /home/pi/.kat5200
 fi
 
-if [ -f "/etc/kat5200/kat5200.db3" ]; then
-	sudo rm /etc/kat5200/kat5200.db3
-fi
+# if [ -f "/etc/kat5200/kat5200.db3" ]; then
+#	sudo rm /etc/kat5200/kat5200.db3
+# fi
 
-if [ -f "/home/pi/kat5200.db3" ]; then
-	sudo rm /home/pi/kat5200.db3
-fi
+# if [ -f "/home/pi/kat5200.db3" ]; then
+#	sudo rm /home/pi/kat5200.db3
+# fi
 
-if [ -f "/opt/retropie/configs/atari5200/default_config.db3" ]
+if [ -f "/home/pi/kat5200.db3" ]
 then
-	echo "Default configuration file already present, it will be renamed."
-	mv /opt/retropie/configs/atari5200/default_config.db3 /opt/retropie/configs/atari5200/default_config.db3_org
-	cd /opt/retropie/configs/atari5200/
-	wget -N https://github.com/futurechild/Kat5200-Retropie/raw/master/default_config.db3
-	cd /tmp
+	echo "A configuration file is already present.
 else
 	echo "Default configuration file not found, downloading it."
-  	cd /opt/retropie/configs/atari5200/
-	wget -N https://github.com/futurechild/Kat5200-Retropie/raw/master/default_config.db3
+  	cd /home/pi/
+	wget -N -O kat5200.db3 https://github.com/futurechild/Kat5200-Retropie/raw/master/default_config.db3
 	cd /tmp
 fi
 
@@ -65,13 +61,13 @@ then
 	# maybe use sed to alter this file ?
 	mv /opt/retropie/configs/atari5200/emulators.cfg /opt/retropie/configs/atari5200/emulators.cfg_org
 	cat <<- EOF > /opt/retropie/configs/atari5200/emulators.cfg
-	kat5200 = "/usr/local/bin/kat5200 -config /opt/retropie/configs/atari5200/default_config.db3 %ROM%"
+	kat5200 = "/usr/local/bin/kat5200 %ROM%"
 	default = "kat5200"
 	EOF
 else
 	echo "Emulator file not found, creating one"
 	cat <<- EOF > /opt/retropie/configs/atari5200/emulators.cfg
-	kat5200 = "/usr/local/bin/kat5200 -config /opt/retropie/configs/atari5200/default_config.db3 %ROM%"
+	kat5200 = "/usr/local/bin/kat5200 %ROM%"
 	default = "kat5200"
 EOF
 fi
