@@ -47,7 +47,7 @@ fi
 
 if [ -f "/home/pi/kat5200.db3" ]
 then
-	echo "A configuration file is already present.
+	echo "A configuration file is already present."
 else
 	echo "Default configuration file not found, downloading it."
   	cd /home/pi/
