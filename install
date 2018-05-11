@@ -37,13 +37,13 @@ if [ ! -d "/home/pi/.kat5200" ]; then
 	mkdir /home/pi/.kat5200
 fi
 
-# if [ -f "/etc/kat5200/kat5200.db3" ]; then
-#	sudo rm /etc/kat5200/kat5200.db3
-# fi
+if [ -f "/etc/kat5200/kat5200.db3" ]; then
+	sudo rm /etc/kat5200/kat5200.db3
+fi
 
-# if [ -f "/home/pi/kat5200.db3" ]; then
-#	sudo rm /home/pi/kat5200.db3
-# fi
+if [ -f "/home/pi/kat5200.db3" ]; then
+	sudo rm /home/pi/kat5200.db3
+fi
 
 if [ -f "/home/pi/.kat5200/kat5200.db3" ]
 then
