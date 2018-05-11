@@ -45,12 +45,12 @@ fi
 #	sudo rm /home/pi/kat5200.db3
 # fi
 
-if [ -f "/home/pi/kat5200.db3" ]
+if [ -f "/home/pi/.kat5200/kat5200.db3" ]
 then
 	echo "A configuration file is already present."
 else
 	echo "Default configuration file not found, downloading it."
-  	cd /home/pi/
+  	cd /home/pi/.kat5200
 	wget -N -O kat5200.db3 https://github.com/futurechild/Kat5200-Retropie/raw/master/default_config.db3
 	cd /tmp
 fi
