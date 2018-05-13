@@ -72,9 +72,25 @@ else
 EOF
 fi
 
-if [ -f "/opt/retropie/configs/all/emulationstation/es_systems.cfg" ]
+# Re-worked to make dryer and avoid duplicate system entries
+clear
+
+if [ ! -f "/opt/retropie/configs/all/emulationstation/es_systems.cfg" ]
 then
-	sudo sed -i '/<systemList>/a\
+	echo "Emulationstation systems file not found, creating it."
+	sudo cp /etc/emulationstation/es_systems.cfg /opt/retropie/configs/all/emulationstation/es_systems.cfg
+else
+	echo "Emulationstation systems file is already present."
+fi
+sudo chown pi:pi /opt/retropie/configs/all/emulationstation/es_systems.cfg
+
+fgrep -q 'atari5200' /opt/retropie/configs/all/emulationstation/es_systems.cfg
+
+if [ $? -eq 0 ]
+then
+	echo "atari5200 system already configured in es_systems.cfg"
+else
+	sed -i '/<systemList>/a\
   <system>\
     <name>atari5200</name>\
     <fullname>Atari 5200</fullname>\
@@ -84,8 +100,7 @@ then
     <platform>atari5200</platform>\
     <theme>atari5200</theme>\
   </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
-	clear
-	echo "Emulationstation systems file was already present."
+	echo "Emulationstation systems file was missing entry for Atari 5200"
 	echo "The following has been added to it :"
 	echo " <system>"
 	echo "   <name>atari5200</name>"
@@ -96,28 +111,8 @@ then
 	echo "   <platform>atari5200</platform>"
 	echo "   <theme>atari5200</theme>"
 	echo " </system>"
-	echo ""
-	echo "Please check this file to make sure it is not there twice"
-	echo ""
-	read -n 1 -s -p "Press any key to continue"
-	
-else
-	echo "Emulationstation systems file not found, creating it."
-	sudo cp /etc/emulationstation/es_systems.cfg /opt/retropie/configs/all/emulationstation/es_systems.cfg
-	sudo sed -i '/<systemList>/a\
-  <system>\
-    <name>atari5200</name>\
-    <fullname>Atari 5200</fullname>\
-    <path>/home/pi/RetroPie/roms/atari5200</path>\
-    <extension>.7z .a52 .bin .zip .7Z .A52 .BIN .ZIP</extension>\
-    <command>/opt/retropie/supplementary/runcommand/runcommand.sh 0 _SYS_ atari5200 %ROM%</command>\
-    <platform>atari5200</platform>\
-    <theme>atari5200</theme>\
-  </system>' /opt/retropie/configs/all/emulationstation/es_systems.cfg
 fi
-chown pi:pi /opt/retropie/configs/all/emulationstation/es_systems.cfg
 
-clear
 echo " "
 echo "kat5200 should now have been successfully installed"
 echo "please reboot your system"
