@@ -11,4 +11,7 @@ Notes:
 ------
 F1 key for invoking the debugger has been removed.
 
-Configuration has to be done with keyboard/mouse (press escape for menu).
+Script will attempt to find a usable es_systems.cfg file and add in an atari5200 system
+if it is not already available.
+
+kat5200 emeulator configuration has to be done with keyboard/mouse (press escape for menu).
