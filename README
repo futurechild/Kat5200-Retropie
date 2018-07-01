@@ -19,4 +19,4 @@ kat5200 emeulator configuration has to be done with keyboard/mouse (press escape
 By default only an entry for Atari5200 will is made, those that want Atari800(XL) as well can add the following to the emulators.cfg:
 kat5200 = "/opt/retropie/emulators/kat5200/bin/kat5200 -machine_type 800XL %ROM%"
 
-Remeber to change the (default) emulator as well or launch the rom using custom settings and select kat5200 as emulator.
+Remember to change the (default) emulator as well or launch the rom using custom settings and select kat5200 as emulator.
